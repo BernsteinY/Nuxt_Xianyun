@@ -42,7 +42,7 @@ export default {
     return {
       banners: [],
       options: [
-        { title: "攻略", placeholder: "请输入城市" },
+        { title: "攻略", placeholder: "请输入城市 获取攻略" },
         { title: "酒店", placeholder: "请输入城市 搜索酒店" },
         { title: "攻略", placeholder: "" }
       ],

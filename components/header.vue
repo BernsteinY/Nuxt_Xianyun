@@ -12,27 +12,26 @@
           <nuxt-link to="/">首页</nuxt-link>
           <nuxt-link to="/post">旅游攻略</nuxt-link>
           <nuxt-link to="/hotel">酒店</nuxt-link>
-          <nuxt-link to="air">国内机票</nuxt-link>
+          <nuxt-link to="/air">国内机票</nuxt-link>
         </el-row>
 
         <!-- 登录 注册 -->
-        <div v-if="false">
+        <div v-if="!$store.state.user.userInfo.token">
           <nuxt-link to="/user/login">登录注册</nuxt-link>
         </div>
         <!-- 登录之后 -->
         <div v-else>
           <el-dropdown>
             <span class="el-dropdown-link">
-              <img src="http://157.122.54.189:9095/assets/images/avatar.jpg" alt />雀巢咖啡
-              <i class="el-icon-arrow-down el-icon--right"></i>
+              <img src="http://157.122.54.189:9095/assets/images/avatar.jpg" alt />
+              {{$store.state.user.userInfo.user.nickname}}
+              <i
+                class="el-icon-arrow-down el-icon--right"
+              ></i>
             </span>
             <el-dropdown-menu>
-              <el-dropdown-item>
-                <nuxt-link to="#">个人中心</nuxt-link>
-              </el-dropdown-item>
-              <el-dropdown-item>
-                <nuxt-link to="#">退出</nuxt-link>
-              </el-dropdown-item>
+              <el-dropdown-item>个人中心</el-dropdown-item>
+              <el-dropdown-item @click.native="handleLogout">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -44,7 +43,14 @@
 
 
 <script>
-export default {};
+export default {
+  methods: {
+    // 用户退出
+    handleLogout() {
+      this.$store.commit("user/clearUserInfo");
+    }
+  }
+};
 </script>
 
 
