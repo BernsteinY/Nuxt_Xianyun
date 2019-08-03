@@ -111,8 +111,8 @@ export default {
         console.log(newData);
 
         // 设置第一个为选中的默认值
-        this.form.departCity = newData[0].value;
-        this.form.departCode = newData[0].sort;
+        // this.form.departCity = newData[0].value;
+        // this.form.departCode = newData[0].sort;
 
         cb(newData);
       });
@@ -139,8 +139,8 @@ export default {
           v.value = v.name.replace("市", "");
           newData.push(v);
         });
-        this.form.destCity = newData[0].value;
-        this.form.destCode = newData[0].sort;
+        // this.form.destCity = newData[0].value;
+        // this.form.destCode = newData[0].sort;
 
         cb(newData);
       });
